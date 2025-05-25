@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 26px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  background: linear-gradient(45deg,#590303, #000000);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  a{
+    text-decoration: none;
+    color: antiquewhite;
+    padding: 1rem;
+  }
+
+  img{
+    width: 125px;
+    height: auto;
+  }
+}
+
+.calendario{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  padding: 5rem;
+  gap: 125px;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+.teams-blogs{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  /* place-items: center; */
+}
+
+.left-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+.right-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.redBull,
+.mercedes,
+.ferrari,
+.mclaren,
+.astonMartin,
+.alpine,
+.visaRB,
+.williams,
+.haas,
+.kickSauber{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 1rem;
+  border-radius: 10px;
+;
+}
+
+.redBull{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/red-bull-2025-05-67b59ff83c395.jpg?crop=1xw:1xh;center,top&resize=980:*);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.mercedes{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://cdn-7.motorsport.com/images/amp/6xERpn40/s1000/mercedes-f1-w16.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.ferrari{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://images.daznservices.com/di/library/DAZN_News/d5/52/ferrari-sf25_lwsaxodr0cim1jo7iz6nb2ar7.jpg?t=453026013);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.mclaren{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://img.asmedia.epimg.net/resizer/v2/FJGYXEC52ZFJNCEVB6OWE3FLGI.jpg?auth=377579bda2649cb1361c28f7fc344c6817c228977abfd506d93828dd234f564d&width=644&height=362&smart=true);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.astonMartin{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2025/02/23/aston-martin-amr25.r_d.1424-651-4636.png);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.alpine{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://autogear.pt/wp-content/uploads/2025/02/Alpine-Unveils-Vibrant-New-Livery-scaled.jpeg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.visaRB{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/racing-bulls-2025-29-67b5a0bd04836.jpg?crop=1xw:1xh;center,top&resize=980:*);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.williams{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://cdn-8.motorsport.com/images/amp/2Qz51dvY/s1000/formula-1-williams-launch-2023-2.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+
+.kickSauber{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://images.daznservices.com/di/library/DAZN_News/d4/82/c45-stake-team-kick-sauber-f1_xyu806i7z1nz1kxb78jkjilvy.jpg?t=448495493);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.haas{
+  width: 75%;
+  height: 400px;
+  background-image: url(https://images.daznservices.com/di/library/DAZN_News/c/ac/haas-vf-24_1e3sfk5ckasor1lrrhx0828aou.jpg?t=1829749629);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.pilotos{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 1rem;
+
+  img{
+    width: 50%;
+    height: auto;
+  }
+}
+
+.redbull-team,
+.mercedes-team,
+.ferrari-team,
+.mclaren-team,
+.astonMartin-team,
+.alpine-team,
+.visaRB-team,
+.williams-team,
+.haas-team,
+.kickSauber-team{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px;
+  padding: 1rem;
+
+  img{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+}
+
+.redBull-drivers,
+.mercedes-drivers,
+.ferrari-drivers,
+.mclaren-drivers,
+.astonMartin-drivers,
+.alpine-drivers,
+.visaRB-drivers,
+.williams-drivers,
+.haas-drivers,
+.kickSauber-drivers{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.verstappen,
+.lawson,
+.rusell,
+.antonelli,
+.hamilton,
+.leclerc,
+.norris,
+.piastri,
+.tsunoda,
+.hadjar,
+.alonso,
+.stroll,
+.gasly,
+.colapinto,
+.sainz,
+.albon,
+.bortoleto,
+.hulkenberg,
+.bearman,
+.ocon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  img{
+    width: 100%;
+    height: auto;
+  } 
+}
+
+
+.clasificacion{
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#tabla-clasificacion {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+#tabla-clasificacion th, #tabla-clasificacion td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#tabla-clasificacion th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .calendario {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 75px;
+  }
+
+  .teams-blogs {
+    grid-template-columns: 1fr;
+  }
+
+  .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
+    width: 90%;
+    height: 300px;
+  }
+
+  .pilotos {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .redbull-team, .mercedes-team, .ferrari-team, .mclaren-team, .astonMartin-team, .alpine-team, .visaRB-team, .williams-team, .haas-team, .kickSauber-team {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+
+  .calendario {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
+    height: 250px;
+  }
+
+  .pilotos img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  .calendario {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
+    width: 100%;
+    height: 200px;
+  }
+
+  .pilotos img {
+    width: 100%;
+  }
+
+  .redbull-team, .mercedes-team, .ferrari-team, .mclaren-team, .astonMartin-team, .alpine-team, .visaRB-team, .williams-team, .haas-team, .kickSauber-team {
+    gap: 10px;
+  }
+}
