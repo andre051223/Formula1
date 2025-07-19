@@ -23,8 +23,8 @@
 </head>
 
 <header>
-  <section div class="navbar">
-    <section div class="navbar">
+  <section class="navbar">
+    <section class="navbar">
         <a href="#">
           <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/New_era_F1_logo.png" alt="">
         </a>
@@ -41,148 +41,190 @@
       <section id="calendario">
         <br>
         <h2>Calendario de la temporada 2025</h2>    
-        <section div class="calendario">
-          <section div class="australia">
+        
+        <!-- Contador regresivo para la próxima carrera -->
+        <section class="next-race-countdown">
+          <h3>Próxima Carrera: GP de Bélgica</h3>
+          <section class="countdown-container">
+            <section class="countdown-item">
+              <span id="days">00</span>
+              <label>Días</label>
+            </section>
+            <section class="countdown-item">
+              <span id="hours">00</span>
+              <label>Horas</label>
+            </section>
+            <section class="countdown-item">
+              <span id="minutes">00</span>
+              <label>Minutos</label>
+            </section>
+            <section class="countdown-item">
+              <span id="seconds">00</span>
+              <label>Segundos</label>
+            </section>
+          </section>
+        </section>
+
+        <!-- Filtros para el calendario -->
+        <section class="calendar-filters">
+          <h3>Filtrar por mes:</h3>
+          <section class="filter-buttons">
+            <button class="filter-btn active" data-month="all">Todos</button>
+            <button class="filter-btn" data-month="marzo">Marzo</button>
+            <button class="filter-btn" data-month="abril">Abril</button>
+            <button class="filter-btn" data-month="mayo">Mayo</button>
+            <button class="filter-btn" data-month="junio">Junio</button>
+            <button class="filter-btn" data-month="julio">Julio</button>
+            <button class="filter-btn" data-month="agosto">Agosto</button>
+            <button class="filter-btn" data-month="septiembre">Septiembre</button>
+            <button class="filter-btn" data-month="octubre">Octubre</button>
+            <button class="filter-btn" data-month="noviembre">Noviembre</button>
+            <button class="filter-btn" data-month="diciembre">Diciembre</button>
+          </section>
+        </section>
+        
+        <section class="calendario">
+          <section class="australia" data-month="marzo">
             <h2>GP Australia</h2>
             <h3>14-16 Marzo</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_771/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Australia_Circuit" alt="">
           </section>
       
-          <section div class="china">
+          <section class="china" data-month="marzo">
             <h2>GP de China</h2>
             <h3>21-23 Marzo</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/China_Circuit" alt="">
           </section>
           
-          <section div class="japon">
+          <section class="japon" data-month="abril">
             <h2>GP de Japón</h2>
             <h3>04-06 Abril</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit" alt="">
           </section>
       
-          <section div class="Bahrain">
+          <section class="Bahrain" data-month="abril">
             <h2>GP de Bahrain</h2>
             <h3>11-13 Abril</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Bahrain_Circuit" alt="">
           </section>
       
-          <section div class="arabiaSaudita">
+          <section class="arabiaSaudita" data-month="abril">
             <h2>GP de Arabia Saudita</h2>
             <h3>18-20 Abril</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Saudi_Arabia_Circuit" alt="">
           </section>
           
-          <section div class="miami">
+          <section class="miami" data-month="mayo">
             <h2>GP de Miami</h2>
             <h3>02-04 Mayo</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit" alt="">
           </section>
           
-          <section div class="emilia-romagna">
+          <section class="emilia-romagna" data-month="mayo">
             <h2>GP de Emilia Romagna</h2>
             <h3>16-18 Mayo</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Emilia_Romagna_Circuit" alt="">
           </section>
       
-          <section div class="monaco">
+          <section class="monaco" data-month="mayo">
             <h2>GP de Monaco</h2>
             <h3>23-25 Mayo</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monaco_Circuit" alt="">
           </section>
       
-          <section div class="españa">
+          <section class="españa" data-month="junio">
             <h2>GP de España</h2>
             <h3>30-01 Junio</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Spain_Circuit" alt="">
           </section>
       
-          <section div class="canada">
+          <section class="canada" data-month="junio">
             <h2>GP de Canada</h2>
             <h3>13-15 Junio</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Canada_Circuit" alt="">
           </section>
       
-          <section div class="austria">
+          <section class="austria" data-month="junio">
             <h2>GP de Austria</h2>
             <h3>27-29 Junio</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Austria_Circuit" alt="">
           </section>
       
-          <section div class="granBretaña">
+          <section class="granBretaña" data-month="julio">
             <h2>GP de Gran Bretaña</h2>
             <h3>04-06 Julio</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit" alt="">
           </section>
       
-          <section div class="belgica">
+          <section class="belgica" data-month="julio">
             <h2>GP de Belgica</h2>
-            <h3>01-03 Agosto</h3>
+            <h3>25-27 Julio</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Belgium_Circuit" alt="">
           </section>
       
-          <section div class="hungria">
+          <section class="hungria" data-month="agosto">
             <h2>GP de Hungria</h2>
             <h3>01-03 Agosto</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Hungary_Circuit" alt="">
           </section>
       
-          <section>
+          <section class="holanda" data-month="agosto">
             <h2>GP de Holanda</h2>
             <h3>29-31 Agosto</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Netherlands_Circuit" alt="">
           </section>
       
-          <section div class="italia">
+          <section class="italia" data-month="septiembre">
             <h2>GP de Italia</h2>
             <h3>05-07 Septiembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit" alt="">
           </section>
       
-          <section div class="azerbaijan">
+          <section class="azerbaijan" data-month="septiembre">
             <h2>GP de Azerbaijan</h2>
             <h3>19-21 Septiembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Baku_Circuit" alt="">
           </section>
       
-          <section div class="singapur">
+          <section class="singapur" data-month="octubre">
             <h2>GP de Singapur</h2>
             <h3>03-05 Octubre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Singapore_Circuit" alt="">
           </section>
       
-          <section div class="estadosUnidos">
+          <section class="estadosUnidos" data-month="octubre">
             <h2>GP de Estados Unidos</h2>
             <h3>17-19 Octubre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/USA_Circuit" alt="">
           </section>
       
-          <section div class="mexico">
+          <section class="mexico" data-month="octubre">
             <h2>GP de Mexico</h2>
             <h3>24-26 Octubre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Mexico_Circuit" alt="">
           </section>
       
       
-          <section div class="brasil">
+          <section class="brasil" data-month="noviembre">
             <h2>GP de Brasil</h2>
             <h3>07-09 Noviembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Brazil_Circuit" alt="">
       
           </section>
       
-          <section div class="lasVegas">
+          <section class="lasVegas" data-month="noviembre">
             <h2>GP de Las Vegas</h2>
             <h3>20-22 Noviembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Las_Vegas_Circuit" alt="">
           </section>
       
-          <section div class="qatar">
+          <section class="qatar" data-month="noviembre">
             <h2>GP de Qatar</h2>
             <h3>28-30 Noviembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Qatar_Circuit" alt="">
           </section>
       
-          <section div class="abuDhabi">
+          <section class="abuDhabi" data-month="diciembre">
             <h2>GP de Abu Dhabi</h2>
             <h3>05-07 Diciembre</h3>
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Abu_Dhabi_Circuit" alt="">
@@ -193,53 +235,53 @@
 
       <section id="equipos">
         <h2>Equipos de la parrilla</h2>
-      <section div class="teams-blogs">
-        <section div class="left-column">
-          <section div class="redBull">
+      <section class="teams-blogs">
+        <section class="left-column">
+          <section class="redBull">
             <h2>Red Bull</h2>
           </section>
     
-          <section div class="mercedes">
+          <section class="mercedes">
             <h2>Mercedes</h2>
           </section>
   
-          <section div class="ferrari">
+          <section class="ferrari">
             <h2>Ferrari</h2>
           </section>
 
-          <section div class="mclaren">
+          <section class="mclaren">
             <h2>McLaren</h2>
     
           </section>
 
-          <section div class="visaRB">
+          <section class="visaRB">
             <h2>Visa RB</h2>
           </section>
         </section>
         
-        <section div class="right-column">
+        <section class="right-column">
           
-          <section div class="astonMartin">
+          <section class="astonMartin">
             <h2>Aston Martin</h2>
     
           </section>
 
-          <section div class="alpine">
+          <section class="alpine">
             <h2>Alpine</h2>
     
           </section>
           
   
-          <section div class="williams">
+          <section class="williams">
             <h2>Williams</h2>
     
           </section>
   
-          <section div class="kickSauber">
+          <section class="kickSauber">
             <h2>Kick Sauber</h2>
           </section>
   
-          <section div class="haas">
+          <section class="haas">
             <h2>Haas</h2>
           </section>
       </section>
@@ -248,19 +290,38 @@
       
       <section id="pilotos">
         <h2>Pilotos</h2>
-        <section div class="pilotos">
+        
+        <!-- Filtros para pilotos -->
+        <section class="driver-filters">
+          <h3>Filtrar por equipo:</h3>
+          <section class="filter-buttons">
+            <button class="filter-btn active" data-team="all">Todos</button>
+            <button class="filter-btn" data-team="red-bull">Red Bull</button>
+            <button class="filter-btn" data-team="mercedes">Mercedes</button>
+            <button class="filter-btn" data-team="ferrari">Ferrari</button>
+            <button class="filter-btn" data-team="mclaren">McLaren</button>
+            <button class="filter-btn" data-team="visa-rb">Visa RB</button>
+            <button class="filter-btn" data-team="aston-martin">Aston Martin</button>
+            <button class="filter-btn" data-team="alpine">Alpine</button>
+            <button class="filter-btn" data-team="williams">Williams</button>
+            <button class="filter-btn" data-team="kick-sauber">Kick Sauber</button>
+            <button class="filter-btn" data-team="haas">Haas</button>
+          </section>
+        </section>
+        
+        <section class="pilotos">
     
-          <section div class="left-column">
-            <section div class="redbull-team">
+          <section class="left-column">
+            <section class="redbull-team" data-team="red-bull">
                 <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/red%20bull" alt="" style="width: 250px; height: 150px;">
     
-              <section div class="redBull-drivers">
-                <section div class="verstappen">
+              <section class="redBull-drivers">
+                <section class="verstappen">
                   <h4>Max Verstappen</h4>
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png" alt="">
                 </section>
                 
-                <section div class="tsunoda">
+                <section class="tsunoda">
                   <h4>Yuki Tsunoda</h4>
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png" alt="">
                 </section>
@@ -269,66 +330,66 @@
               </section>
             </section>
     
-            <section div class="mercedes-team">
+            <section class="mercedes-team" data-team="mercedes">
 
               <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/mercedes" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
     
-              <section div class="mercedes-drivers">
-                <section div class="rusell">
+              <section class="mercedes-drivers">
+                <section class="rusell">
                   <h4>George Rusell</h4>
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png" alt="">
                 </section>
                   
-                <section div class="antonelli">
+                <section class="antonelli">
                   <h4>Kimi Antonelli</h4>  
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ANDANT01_Andrea%20Kimi_Antonelli/andant01.png" alt="" >
                 </section>
               </section>
     
             </section>
-    
-            <section div class="ferrari-team">
-              <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/ferrari" alt="" style="width: 250px; height: 150px;">
-    
-              <section div class="ferrari-drivers">
-                <section div class="hamilton">
+
+            <section class="ferrari-team" data-team="ferrari">
+              <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/ferrari" alt="" style="width: 250px; height: 150px; ">
+
+              <section class="ferrari-drivers">
+                <section class="hamilton">
                   <h4>Lewis Hamilton</h4>
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png" alt="">
                 </section>
                   
-                <section div class="leclerc">
+                <section class="leclerc">
                   <h4>Charles Leclerc</h4>  
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png" alt="">
                 </section>
               </section>
             </section>
-    
-            <section div class="mclaren-team">
-              <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/mclaren" alt="" style="width: 250px; height: 150px;">
-    
-              <section div class="mclaren-drivers">
-                <section div class="norris">
+
+            <section class="mclaren-team" data-team="mclaren">
+              <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/mclaren" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
+
+              <section class="mclaren-drivers">
+                <section class="norris">
                   <h4>Lando Norris</h4>
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png" alt="">
                 </section>
                   
-                <section div class="piastri">
+                <section class="piastri">
                   <h4>Oscar Piastri</h4>  
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png" alt="">
                 </section>
               </section>
             </section>
     
-            <section div class="visaRB-team">
+            <section class="visaRB-team" data-team="visa-rb">
               <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/rb" alt="" style="width: 250px; height: 150px;">
-    
-              <section div class="visaRB-drivers">
-                <section div class="hadjar">
+
+              <section class="visaRB-drivers">
+                <section class="hadjar">
                   <h4>Isack Hadjar</h4>  
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/I/ISAHAD01_Isack_Hadjar/isahad01.png" alt="">
                 </section>
 
-                <section div class="lawson">
+                <section class="lawson">
                   <h4>Liam Lawson</h4>  
                   <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png" alt="">
                 </section>
@@ -338,83 +399,83 @@
     
     
         </section>
-    
-        <section div class="right-column">
-    
-          <section div class="astonMartin-team">
+
+        <section class="right-column">
+
+          <section class="astonMartin-team" data-team="aston-martin">
             <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/aston%20martin%202024" alt="" style="width: 250px; height: 150px;">
-    
-            <section div class="astonMartin-drivers">
-              <section div class="alonso">
+
+            <section class="astonMartin-drivers">
+              <section class="alonso">
                 <h4>Fernando Alonso</h4>
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png" alt="">
               </section>
                 
-              <section div class="stroll">
+              <section class="stroll">
                 <h4>Lance Stroll</h4>  
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png" alt="">
               </section>
             </section>
           </section>
-    
-          <section div class="alpine-team">
-            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/alpine" alt=""style="width: 250px; height: 150px;">
-    
-            <section div class="alpine-drivers">
-              <section div class="gasly">
+
+          <section class="alpine-team" data-team="alpine">
+            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/alpine" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
+
+            <section class="alpine-drivers">
+              <section class="gasly">
                 <h4>Pierre Gasly</h4>
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png" alt="">
               </section>
                 
-              <section div class="colapinto">
+              <section class="colapinto">
                 <h4>Franco Colapinto</h4>  
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png" alt="">
               </section>
             </section>
           </section>
     
-          <section div class="williams-team">
-            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/williams" alt=""style="width: 250px; height: 150px;">
-    
-            <section div class="williams-drivers">
-              <section div class="sainz">
+          <section class="williams-team" data-team="williams">
+            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/williams" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
+
+            <section class="williams-drivers">
+              <section class="sainz">
                 <h4>Carlos Sainz</h4>
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png" alt="">
               </section>
                 
-              <section div class="albon">
+              <section class="albon">
                 <h4>Alex Albon</h4>  
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png" alt="">
               </section>
             </section>
           </section>
-    
-          <section div class="kickSauber-team">
-            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/kick%20sauber" alt="" style="width: 250px; height: 150px;">
-    
-            <section div class="kickSauber-drivers">
-              <section div class="bortoleto">
+
+          <section class="kickSauber-team" data-team="kick-sauber">
+            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/kick%20sauber" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
+
+            <section class="kickSauber-drivers">
+              <section class="bortoleto">
                 <h4>Gabriel Bortoleto</h4>
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GABBOR01_Gabriel_Bortoleto/gabbor01.png" alt="">
               </section>
                 
-              <section div class="hulkenberg">
+              <section class="hulkenberg">
                 <h4>Nico Hulkenberg</h4>  
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png" alt="">
               </section>
           </section>  
         </section>
-    
-          <section div class="haas-team">
-            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/haas" alt="" style="width: 250px; height: 150px;">
-    
-            <section div class="haas-drivers">
-              <section div class="bearman">
+
+          <section class="haas-team" data-team="haas">
+            <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/haas" alt="" style="width: 250px; height: 150px; filter: brightness(0) invert(1);">
+
+            <section class="haas-drivers">
+              <section class="bearman">
                 <h4>Oliver Bearman</h4>
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OLIBEA01_Oliver_Bearman/olibea01.png" alt="">
               </section>
                 
-              <section div class="ocon">
+              <section class="ocon">
                 <h4>Esteban Ocon</h4>  
                 <img src="https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png" alt="">
               </section>
@@ -426,7 +487,7 @@
       </section>
     
     <section id="clasificacion">
-    <section div class="clasificacion">
+    <section class="clasificacion">
       <h2>Clasificación del Mundial de Pilotos</h2>
       <table id="tabla-clasificacion">
         <thead>
@@ -434,6 +495,23 @@
             <th>Posición</th>
             <th>Equipo</th>
             <th>Piloto</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Las filas de la tabla se generarán dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="clasificacion-equipos">
+      <h2>Clasificación del Mundial de Constructores</h2>
+      <table id="tabla-equipos">
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Equipo</th>
+            <th>Pilotos</th>
             <th>Puntos</th>
           </tr>
         </thead>
@@ -452,7 +530,7 @@
 </body>
 
   <footer>
-    <section div class="footer">
+    <section class="footer">
       <p>&copy; Diego Andrés Lopez | 2025 </p>
     </section>
   </footer>

@@ -43,14 +43,136 @@ header{
 
 .calendario{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
-  padding: 5rem;
-  gap: 125px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 
   img{
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
+  section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+  }
+
+  section:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* Contador regresivo */
+.next-race-countdown {
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid #ff0000;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  backdrop-filter: blur(10px);
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  min-width: 100px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.countdown-item label {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin-top: 0.5rem;
+}
+
+/* Filtros */
+.calendar-filters, .driver-filters {
+  margin: 2rem auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 0, 0, 0.3);
+  border-color: #ff0000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.filter-btn.active {
+  background: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* Animaciones para elementos filtrados */
+.calendario section, 
+.pilotos section {
+  transition: all 0.5s ease;
+}
+
+.calendario section.hidden, 
+.pilotos section.hidden {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .teams-blogs{
@@ -92,99 +214,176 @@ header{
   align-items: center;
   margin: 10px;
   padding: 1rem;
-  border-radius: 10px;
-;
+  border-radius: 15px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  will-change: transform, box-shadow;
+}
+
+.redBull:hover,
+.mercedes:hover,
+.ferrari:hover,
+.mclaren:hover,
+.astonMartin:hover,
+.alpine:hover,
+.visaRB:hover,
+.williams:hover,
+.haas:hover,
+.kickSauber:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #ff0000;
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.3),
+              0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.redBull:before,
+.mercedes:before,
+.ferrari:before,
+.mclaren:before,
+.astonMartin:before,
+.alpine:before,
+.visaRB:before,
+.williams:before,
+.haas:before,
+.kickSauber:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(255,255,255,0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.redBull:hover:before,
+.mercedes:hover:before,
+.ferrari:hover:before,
+.mclaren:hover:before,
+.astonMartin:hover:before,
+.alpine:hover:before,
+.visaRB:hover:before,
+.williams:hover:before,
+.haas:hover:before,
+.kickSauber:hover:before {
+  opacity: 1;
 }
 
 .redBull{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #0600EF 0%, #DC143C 100%);
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/red-bull-2025-05-67b59ff83c395.jpg?crop=1xw:1xh;center,top&resize=980:*);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .mercedes{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #00D2BE 0%, #C0C0C0 100%);
   background-image: url(https://cdn-7.motorsport.com/images/amp/6xERpn40/s1000/mercedes-f1-w16.jpg);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .ferrari{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #DC143C 0%, #FFD700 100%);
   background-image: url(https://images.daznservices.com/di/library/DAZN_News/d5/52/ferrari-sf25_lwsaxodr0cim1jo7iz6nb2ar7.jpg?t=453026013);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .mclaren{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #FF8000 0%, #000080 100%);
   background-image: url(https://img.asmedia.epimg.net/resizer/v2/FJGYXEC52ZFJNCEVB6OWE3FLGI.jpg?auth=377579bda2649cb1361c28f7fc344c6817c228977abfd506d93828dd234f564d&width=644&height=362&smart=true);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .astonMartin{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #006F62 0%, #CEDC00 100%);
   background-image: url(https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2025/02/23/aston-martin-amr25.r_d.1424-651-4636.png);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .alpine{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #0090FF 0%, #FF1493 100%);
   background-image: url(https://autogear.pt/wp-content/uploads/2025/02/Alpine-Unveils-Vibrant-New-Livery-scaled.jpeg);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .visaRB{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #6692FF 0%, #FF6600 100%);
   background-image: url(https://hips.hearstapps.com/hmg-prod/images/racing-bulls-2025-29-67b5a0bd04836.jpg?crop=1xw:1xh;center,top&resize=980:*);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .williams{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #005AFF 0%, #00D2BE 100%);
   background-image: url(https://cdn-8.motorsport.com/images/amp/2Qz51dvY/s1000/formula-1-williams-launch-2023-2.jpg);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
-
 
 .kickSauber{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #52E252 0%, #000000 100%);
   background-image: url(https://images.daznservices.com/di/library/DAZN_News/d4/82/c45-stake-team-kick-sauber-f1_xyu806i7z1nz1kxb78jkjilvy.jpg?t=448495493);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .haas{
   width: 75%;
   height: 400px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FF0000 100%);
   background-image: url(https://images.daznservices.com/di/library/DAZN_News/c/ac/haas-vf-24_1e3sfk5ckasor1lrrhx0828aou.jpg?t=1829749629);
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  background-blend-mode: overlay;
+  opacity: 0.9;
 }
 
 .pilotos{
@@ -278,70 +477,348 @@ header{
 
 
 .clasificacion{
-  width: 75%;
+  width: 100%;
+  max-width: 1200px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-#tabla-clasificacion {
+.clasificacion-equipos {
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 0;
+  padding: 2rem 1rem;
+}
+
+#tabla-clasificacion, #tabla-equipos {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-#tabla-clasificacion th, #tabla-clasificacion td {
-  border: 1px solid #ddd;
-  padding: 8px;
+#tabla-clasificacion th, #tabla-clasificacion td,
+#tabla-equipos th, #tabla-equipos td {
+  border: none;
+  padding: 12px 8px;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #tabla-clasificacion th {
-  background-color: #f2f2f2;
-  color: black;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
+#tabla-equipos th {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#tabla-clasificacion td,
+#tabla-equipos td {
+  background: rgba(255, 255, 255, 0.02);
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#tabla-clasificacion tr:hover td,
+#tabla-equipos tr:hover td {
+  background: rgba(255, 0, 0, 0.1);
+  transform: scale(1.01);
+}
+
+#tabla-clasificacion tr:nth-child(even) td,
+#tabla-equipos tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Estilos especiales para las posiciones del podio */
+#tabla-clasificacion tr:nth-child(1) td:first-child,
+#tabla-equipos tr:nth-child(1) td:first-child {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-weight: bold;
+}
+
+#tabla-clasificacion tr:nth-child(2) td:first-child,
+#tabla-equipos tr:nth-child(2) td:first-child {
+  background: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
+  color: #000;
+  font-weight: bold;
+}
+
+#tabla-clasificacion tr:nth-child(3) td:first-child,
+#tabla-equipos tr:nth-child(3) td:first-child {
+  background: linear-gradient(135deg, #CD7F32 0%, #A0522D 100%);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Responsive para tablas */
+@media (max-width: 768px) {
+  .clasificacion, .clasificacion-equipos {
+    padding: 1rem 0.5rem;
+  }
+  
+  #tabla-clasificacion th, #tabla-clasificacion td,
+  #tabla-equipos th, #tabla-equipos td {
+    padding: 8px 4px;
+    font-size: 0.8rem;
+  }
+  
+  #tabla-clasificacion th,
+  #tabla-equipos th {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #tabla-clasificacion th, #tabla-clasificacion td,
+  #tabla-equipos th, #tabla-equipos td {
+    padding: 6px 2px;
+    font-size: 0.7rem;
+  }
+  
+  #tabla-clasificacion th,
+  #tabla-equipos th {
+    font-size: 0.65rem;
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendario section {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.calendario section:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+.calendario section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility improvements */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #ff0000;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .next-race-countdown,
+  .calendar-filters,
+  .driver-filters {
+    display: none;
+  }
+  
+  .calendario {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+
+
+/* Media Queries para Responsividad */
 @media (max-width: 1200px) {
   .calendario {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 75px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  html {
+    font-size: 24px;
   }
 
-  .teams-blogs {
-    grid-template-columns: 1fr;
+  .countdown-container {
+    gap: 1rem;
   }
 
-  .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
-    width: 90%;
-    height: 300px;
-  }
-
-  .pilotos {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .redbull-team, .mercedes-team, .ferrari-team, .mclaren-team, .astonMartin-team, .alpine-team, .visaRB-team, .williams-team, .haas-team, .kickSauber-team {
-    flex-direction: column;
+  .countdown-item {
+    min-width: 80px;
+    padding: 0.8rem;
   }
 }
 
 @media (max-width: 768px) {
   html {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .navbar a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background: rgba(255, 0, 0, 0.3);
+    transform: scale(1.05);
   }
 
   .calendario {
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1fr;
+    padding: 1rem 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .next-race-countdown {
+    margin: 1rem 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .countdown-container {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    min-width: 65px;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .countdown-item span {
+    font-size: 1.4rem;
+  }
+
+  .calendar-filters, .driver-filters {
+    margin: 1.5rem 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .filter-buttons {
+    gap: 0.4rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 20px;
+  }
+
+  .teams-blogs {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .pilotos {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem 0.5rem;
   }
 
   .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
     height: 250px;
+    width: 95%;
+    margin: 0.5rem auto;
+  }
+
+  .redbull-team, .mercedes-team, .ferrari-team, .mclaren-team, .astonMartin-team, .alpine-team, .visaRB-team, .williams-team, .haas-team, .kickSauber-team {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .pilotos img {
-    width: 70%;
+    width: 80%;
+  }
+
+  table {
+    font-size: 0.75rem;
+    margin: 0 0.5rem;
+  }
+
+  th, td {
+    padding: 0.4rem 0.2rem;
+  }
+
+  .clasificacion {
+    width: 95%;
+    padding: 0 0.5rem;
   }
 }
 
@@ -350,21 +827,94 @@ header{
     font-size: 16px;
   }
 
+  .navbar {
+    padding: 0.8rem 0.3rem;
+  }
+
+  .navbar img {
+    width: 80px;
+  }
+
+  .navbar a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
   .calendario {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    padding: 0.8rem 0.3rem;
+    gap: 1rem;
+  }
+
+  .next-race-countdown {
+    margin: 0.8rem 0.3rem;
+    padding: 1rem;
+  }
+
+  .countdown-container {
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    min-width: 55px;
+    padding: 0.6rem 0.3rem;
+  }
+
+  .countdown-item span {
+    font-size: 1.1rem;
+  }
+
+  .countdown-item label {
+    font-size: 0.7rem;
+  }
+
+  .calendar-filters, .driver-filters {
+    margin: 1rem 0.3rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    margin: 0.1rem;
   }
 
   .redBull, .mercedes, .ferrari, .mclaren, .astonMartin, .alpine, .visaRB, .williams, .haas, .kickSauber {
-    width: 100%;
     height: 200px;
+    width: 98%;
+    margin: 0.3rem auto;
   }
 
-  .pilotos img {
-    width: 100%;
+  .pilotos {
+    gap: 1.5rem;
+    padding: 0.8rem 0.3rem;
   }
 
   .redbull-team, .mercedes-team, .ferrari-team, .mclaren-team, .astonMartin-team, .alpine-team, .visaRB-team, .williams-team, .haas-team, .kickSauber-team {
-    gap: 10px;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .pilotos img {
+    width: 90%;
+  }
+
+  table {
+    font-size: 0.65rem;
+    margin: 0 0.3rem;
+  }
+
+  th, td {
+    padding: 0.3rem 0.1rem;
+  }
+
+  .clasificacion {
+    width: 98%;
+  }
+
+  .next-race-countdown h3 {
+    font-size: 1rem;
+  }
+
+  .calendar-filters h3, .driver-filters h3 {
+    font-size: 0.9rem;
   }
 }
