@@ -1,11 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
   // CONTADOR REGRESIVO PARA LA PRÓXIMA CARRERA
   function initCountdown() {
-    // Fecha del GP de Bélgica: 25 de julio 2025, 15:00 (hora europea típica de carrera)
-    const nextRaceDate = new Date('2025-07-25T15:00:00').getTime();
+    // Calendario de carreras 2025 (fechas de carrera - domingo típicamente)
+    const carreras = [
+      { nombre: 'GP de Australia', fecha: '2025-03-16T15:00:00', mes: 'marzo' },
+      { nombre: 'GP de China', fecha: '2025-03-23T15:00:00', mes: 'marzo' },
+      { nombre: 'GP de Japón', fecha: '2025-04-06T15:00:00', mes: 'abril' },
+      { nombre: 'GP de Bahrain', fecha: '2025-04-13T15:00:00', mes: 'abril' },
+      { nombre: 'GP de Arabia Saudita', fecha: '2025-04-20T15:00:00', mes: 'abril' },
+      { nombre: 'GP de Miami', fecha: '2025-05-04T15:00:00', mes: 'mayo' },
+      { nombre: 'GP de Emilia Romagna', fecha: '2025-05-18T15:00:00', mes: 'mayo' },
+      { nombre: 'GP de Monaco', fecha: '2025-05-25T15:00:00', mes: 'mayo' },
+      { nombre: 'GP de España', fecha: '2025-06-01T15:00:00', mes: 'junio' },
+      { nombre: 'GP de Canada', fecha: '2025-06-15T15:00:00', mes: 'junio' },
+      { nombre: 'GP de Austria', fecha: '2025-06-29T15:00:00', mes: 'junio' },
+      { nombre: 'GP de Gran Bretaña', fecha: '2025-07-06T15:00:00', mes: 'julio' },
+      { nombre: 'GP de Belgica', fecha: '2025-07-27T15:00:00', mes: 'julio' },
+      { nombre: 'GP de Hungria', fecha: '2025-08-03T15:00:00', mes: 'agosto' },
+      { nombre: 'GP de Holanda', fecha: '2025-08-31T15:00:00', mes: 'agosto' },
+      { nombre: 'GP de Italia', fecha: '2025-09-07T15:00:00', mes: 'septiembre' },
+      { nombre: 'GP de Azerbaijan', fecha: '2025-09-21T15:00:00', mes: 'septiembre' },
+      { nombre: 'GP de Singapur', fecha: '2025-10-05T15:00:00', mes: 'octubre' },
+      { nombre: 'GP de Estados Unidos', fecha: '2025-10-19T15:00:00', mes: 'octubre' },
+      { nombre: 'GP de Mexico', fecha: '2025-10-26T15:00:00', mes: 'octubre' },
+      { nombre: 'GP de Brasil', fecha: '2025-11-09T15:00:00', mes: 'noviembre' },
+      { nombre: 'GP de Las Vegas', fecha: '2025-11-22T15:00:00', mes: 'noviembre' },
+      { nombre: 'GP de Qatar', fecha: '2025-11-30T15:00:00', mes: 'noviembre' },
+      { nombre: 'GP de Abu Dhabi', fecha: '2025-12-07T15:00:00', mes: 'diciembre' }
+    ];
+
+    // Encontrar la próxima carrera
+    function encontrarProximaCarrera() {
+      const ahora = new Date().getTime();
+      const proximaCarrera = carreras.find(carrera => new Date(carrera.fecha).getTime() > ahora);
+      return proximaCarrera || carreras[0]; // Si no hay más carreras este año, volver al inicio
+    }
+
+    let proximaCarrera = encontrarProximaCarrera();
+    let nextRaceDate = new Date(proximaCarrera.fecha).getTime();
+    
+    // Actualizar el título con la próxima carrera
+    const tituloCarrera = document.querySelector('.next-race-countdown h3');
+    if (tituloCarrera) {
+      tituloCarrera.textContent = `Próxima Carrera: ${proximaCarrera.nombre}`;
+    }
     
     function updateCountdown() {
       const now = new Date().getTime();
+      
+      // Verificar si la carrera actual ya pasó y necesitamos cambiar a la siguiente
+      if (now > nextRaceDate) {
+        proximaCarrera = encontrarProximaCarrera();
+        nextRaceDate = new Date(proximaCarrera.fecha).getTime();
+        
+        // Actualizar el título
+        const tituloCarrera = document.querySelector('.next-race-countdown h3');
+        if (tituloCarrera) {
+          tituloCarrera.textContent = `Próxima Carrera: ${proximaCarrera.nombre}`;
+        }
+      }
+      
       const distance = nextRaceDate - now;
       
       if (distance > 0) {
@@ -19,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
       } else {
+        // Si llegamos aquí, significa que la carrera está en curso o acaba de terminar
         document.getElementById('days').textContent = '00';
         document.getElementById('hours').textContent = '00';
         document.getElementById('minutes').textContent = '00';
@@ -127,26 +182,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Datos de la clasificación - sin posiciones predeterminadas
   let clasificacion = [
-    { equipo: 'Red Bull', piloto: 'Max Verstappen', puntos: 165, nacionalidad: '🇳🇱' },
-    { equipo:'Visa RB', piloto: 'Liam Lawson', puntos: 12, nacionalidad: '🇳🇿' },
-    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 103, nacionalidad: '🇬🇧' },
-    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 119, nacionalidad: '🇲🇨' },
-    { equipo:'Mercedes',piloto: 'George Russell', puntos: 147, nacionalidad: '🇬🇧' },
-    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 63, nacionalidad: '🇮🇹' },
-    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 234, nacionalidad: '🇦🇺' },
-    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 226, nacionalidad: '🇬🇧' },
+    { equipo: 'Red Bull', piloto: 'Max Verstappen', puntos: 187, nacionalidad: '🇳🇱' },
     { equipo:'Red Bull',piloto: 'Yuki Tsunoda', puntos: 10, nacionalidad: '🇯🇵' },
-    { equipo:'Visa RB',piloto: 'Isack Hadjar', puntos: 21, nacionalidad: '🇫🇷' },
-    { equipo:'Aston Martin',piloto: 'Fernando Alonso', puntos: 16, nacionalidad: '🇪🇸' },
-    { equipo:'Aston Martin',piloto: 'Lance Stroll', puntos: 20, nacionalidad: '🇨🇦' },
-    { equipo:'Alpine',piloto: 'Pierre Gasly', puntos: 19, nacionalidad: '🇫🇷' },
+    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 109, nacionalidad: '🇬🇧' },
+    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 157, nacionalidad: '🇲🇨' },
+    { equipo:'Mercedes',piloto: 'George Russell', puntos: 172, nacionalidad: '🇬🇧' },
+    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 64, nacionalidad: '🇮🇹' },
+    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 284, nacionalidad: '🇦🇺' },
+    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 275, nacionalidad: '🇬🇧' },
+    { equipo:'Visa RB',piloto: 'Isack Hadjar', puntos: 22, nacionalidad: '🇫🇷' },
+    { equipo:'Visa RB', piloto: 'Liam Lawson', puntos: 20, nacionalidad: '🇳🇿' },
+    { equipo:'Aston Martin',piloto: 'Fernando Alonso', puntos: 26, nacionalidad: '🇪🇸' },
+    { equipo:'Aston Martin',piloto: 'Lance Stroll', puntos: 26, nacionalidad: '🇨🇦' },
+    { equipo:'Alpine',piloto: 'Pierre Gasly', puntos: 20, nacionalidad: '🇫🇷' },
     { equipo:'Alpine',piloto: 'Franco Colapinto', puntos: 0, nacionalidad: '🇦🇷' },
-    { equipo:'Williams',piloto: 'Carlos Sainz', puntos: 13, nacionalidad: '🇪🇸' },
-    { equipo:'Williams',piloto: 'Alex Albon', puntos: 46, nacionalidad: '🇹🇭' },
-    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 4, nacionalidad: '🇧🇷' },
+    { equipo:'Williams',piloto: 'Carlos Sainz', puntos: 16, nacionalidad: '🇪🇸' },
+    { equipo:'Williams',piloto: 'Alex Albon', puntos: 54, nacionalidad: '🇹🇭' },
+    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 14, nacionalidad: '🇧🇷' },
     { equipo:'Kick Sauber',piloto: 'Nico Hulkenberg', puntos: 37, nacionalidad: '🇩🇪' },
-    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 6, nacionalidad: '🇬🇧' },
-    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 23, nacionalidad: '🇫🇷' },
+    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 8, nacionalidad: '🇬🇧' },
+    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 27, nacionalidad: '🇫🇷' },
   ];
 
   // Colores por equipo
@@ -589,10 +644,12 @@ document.addEventListener('DOMContentLoaded', () => {
         background: transparent;
         border: 1px solid rgba(255, 255, 255, 0.3);
         color: ${piloto.puntos > 200 ? '#059669' : piloto.puntos > 100 ? '#D97706' : '#6B7280'};
+        font-size: 0.8rem;
         font-weight: bold;
         text-align: center;
+        align-self: center;
         width: 80px;
-        padding: 5px;
+        padding: 7px;
         border-radius: 4px;
         transition: all 0.3s ease;
       `;

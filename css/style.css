@@ -12,7 +12,7 @@ html{
   justify-content: center;
   align-items: center;
   color: antiquewhite;
-  background: linear-gradient(45deg,#590303, #000000);
+  background: linear-gradient(60deg,#590303, #000000);
   font-family: 'Rajdhani', sans-serif;
 }
 
@@ -515,7 +515,7 @@ header{
 }
 
 #tabla-clasificacion th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
   color: white;
   font-weight: 600;
   text-transform: uppercase;
@@ -532,7 +532,7 @@ header{
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -544,6 +544,14 @@ header{
   color: #ffffff;
   font-weight: 500;
   transition: all 0.3s ease;
+}
+
+/* Estilos específicos para la columna de puntos en la tabla de pilotos */
+#tabla-clasificacion td:last-child {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6b35;
+  text-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
 }
 
 #tabla-clasificacion tr:hover td,
@@ -595,6 +603,11 @@ header{
   #tabla-equipos th {
     font-size: 0.75rem;
   }
+  
+  /* Mantener el tamaño del puntaje en tablets */
+  #tabla-clasificacion td:last-child {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -607,6 +620,11 @@ header{
   #tabla-clasificacion th,
   #tabla-equipos th {
     font-size: 0.65rem;
+  }
+  
+  /* Mantener el puntaje visible en móviles */
+  #tabla-clasificacion td:last-child {
+    font-size: 1.8rem;
   }
 }
 
