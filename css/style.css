@@ -428,6 +428,36 @@ header{
   }
 }
 
+/* Mantener el filtro blanco SOLO en los logos de equipos específicos incluso en hover */
+.mercedes-team > img:first-child,
+.mclaren-team > img:first-child,
+.alpine-team > img:first-child,
+.williams-team > img:first-child,
+.kickSauber-team > img:first-child,
+.haas-team > img:first-child {
+  filter: brightness(0) invert(1) !important;
+}
+
+.mercedes-team:hover > img:first-child,
+.mclaren-team:hover > img:first-child,
+.alpine-team:hover > img:first-child,
+.williams-team:hover > img:first-child,
+.kickSauber-team:hover > img:first-child,
+.haas-team:hover > img:first-child {
+  filter: brightness(0) invert(1) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Asegurar que las imágenes de los pilotos NO tengan filtro */
+.mercedes-drivers img,
+.mclaren-drivers img,
+.alpine-drivers img,
+.williams-drivers img,
+.kickSauber-drivers img,
+.haas-drivers img {
+  filter: none !important;
+}
+
 .redBull-drivers,
 .mercedes-drivers,
 .ferrari-drivers,
