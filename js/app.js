@@ -182,26 +182,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Datos de la clasificación - sin posiciones predeterminadas
   let clasificacion = [
-    { equipo:'Red Bull', piloto: 'Max Verstappen', puntos: 230, nacionalidad: '🇳🇱' },
-    { equipo:'Red Bull',piloto: 'Yuki Tsunoda', puntos: 12, nacionalidad: '🇯🇵' },
-    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 117, nacionalidad: '🇬🇧' },
-    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 163, nacionalidad: '🇲🇨' },
-    { equipo:'Mercedes',piloto: 'George Russell', puntos: 194, nacionalidad: '🇬🇧' },
-    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 66, nacionalidad: '🇮🇹' },
-    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 324, nacionalidad: '🇦🇺' },
-    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 293, nacionalidad: '🇬🇧' },
-    { equipo:'Visa RB',piloto: 'Isack Hadjar', puntos: 38, nacionalidad: '🇫🇷' },
-    { equipo:'Visa RB', piloto: 'Liam Lawson', puntos: 20, nacionalidad: '🇳🇿' },
-    { equipo:'Aston Martin',piloto: 'Fernando Alonso', puntos: 30, nacionalidad: '🇪🇸' },
-    { equipo:'Aston Martin',piloto: 'Lance Stroll', puntos: 32, nacionalidad: '🇨🇦' },
-    { equipo:'Alpine',piloto: 'Pierre Gasly', puntos: 20, nacionalidad: '🇫🇷' },
-    { equipo:'Alpine',piloto: 'Franco Colapinto', puntos: 0, nacionalidad: '🇦🇷' },
-    { equipo:'Williams',piloto: 'Carlos Sainz', puntos: 16, nacionalidad: '🇪🇸' },
-    { equipo:'Williams',piloto: 'Alex Albon', puntos: 70, nacionalidad: '🇹🇭' },
-    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 18, nacionalidad: '🇧🇷' },
-    { equipo:'Kick Sauber',piloto: 'Nico Hulkenberg', puntos: 37, nacionalidad: '🇩🇪' },
-    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 16, nacionalidad: '🇬🇧' },
-    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 28, nacionalidad: '🇫🇷' },
+    { equipo:'Red Bull', piloto: 'Max Verstappen', puntos: 255 },
+    { equipo:'Red Bull',piloto: 'Yuki Tsunoda', puntos: 20 },
+    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 121 },
+    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 165 },
+    { equipo:'Mercedes',piloto: 'George Russell', puntos: 212 },
+    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 78 },
+    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 324 },
+    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 299 },
+    { equipo:'Visa RB',piloto: 'Isack Hadjar', puntos: 39 },
+    { equipo:'Visa RB', piloto: 'Liam Lawson', puntos: 30 },
+    { equipo:'Aston Martin',piloto: 'Fernando Alonso', puntos: 30 },
+    { equipo:'Aston Martin',piloto: 'Lance Stroll', puntos: 32 },
+    { equipo:'Alpine',piloto: 'Pierre Gasly', puntos: 20 },
+    { equipo:'Alpine',piloto: 'Franco Colapinto', puntos: 0 },
+    { equipo:'Williams',piloto: 'Carlos Sainz', puntos: 31 },
+    { equipo:'Williams',piloto: 'Alex Albon', puntos: 70 },
+    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 18 },
+    { equipo:'Kick Sauber',piloto: 'Nico Hulkenberg', puntos: 37 },
+    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 16 },
+    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 28 },
   ];
 
   // Colores por equipo
@@ -422,7 +422,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     equiposClasificacion.forEach((equipo, index) => {
       const fila = tablaEquipos.insertRow();
+      
+      // Estilo compacto para la fila (idéntico a tabla pilotos)
       fila.style.cssText = `
+        height: 28px;
+        line-height: 1.2;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-in-out ${index * 0.1}s both;
       `;
@@ -451,27 +455,38 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (posicion === 3) posicionTexto = '🥉 3';
       
       celdaPosicion.textContent = posicionTexto;
-      celdaPosicion.style.fontWeight = 'bold';
+      celdaPosicion.style.cssText = `
+        font-weight: bold;
+        font-size: 0.85em;
+        padding: 2px 6px;
+        text-align: center;
+      `;
 
-      // Equipo con color
+      // Equipo con color compacto (idéntico a tabla pilotos)
       celdaEquipo.textContent = equipo.equipo;
       celdaEquipo.style.cssText = `
         color: ${coloresEquipo[equipo.equipo] || '#000'};
         font-weight: bold;
-        border-left: 6px solid ${coloresEquipo[equipo.equipo] || '#000'};
-        padding-left: 12px;
-        font-size: 1.1em;
+        border-left: 3px solid ${coloresEquipo[equipo.equipo] || '#000'};
+        padding: 2px 6px 2px 8px;
+        font-size: 0.85em;
       `;
 
-      // Pilotos del equipo
+      // Pilotos del equipo compactos
       celdaPilotos.innerHTML = equipo.pilotos.join(' & ');
-      celdaPilotos.style.cssText = 'font-weight: 500; font-style: italic;';
+      celdaPilotos.style.cssText = `
+        font-weight: 500;
+        font-size: 0.85em;
+        padding: 2px 6px;
+      `;
 
-      // Puntos totales del equipo
+      // Puntos totales del equipo compactos
       celdaPuntos.textContent = equipo.puntos;
       celdaPuntos.style.cssText = `
         font-weight: bold;
-        font-size: 1.2em;
+        font-size: 0.75em;
+        padding: 2px 6px;
+        text-align: center;
         color: ${equipo.puntos > 400 ? '#059669' : equipo.puntos > 200 ? '#D97706' : '#6B7280'};
       `;
     });
@@ -590,7 +605,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     datos.forEach((piloto, index) => {
       const fila = tablaClasificacion.insertRow();
+      
+      // Estilo compacto para la fila
       fila.style.cssText = `
+        height: 28px !important;
+        line-height: 1.2 !important;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-in-out ${index * 0.05}s both;
       `;
@@ -611,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const celdaPiloto = fila.insertCell(2);
       const celdaPuntos = fila.insertCell(3);
 
-      // Posición calculada dinámicamente (index + 1)
+      // Posición con trofeos para top 3
       const posicion = index + 1;
       let posicionTexto = posicion;
       if (posicion === 1) posicionTexto = '🏆 1';
@@ -619,39 +638,51 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (posicion === 3) posicionTexto = '🥉 3';
       
       celdaPosicion.textContent = posicionTexto;
-      celdaPosicion.style.fontWeight = 'bold';
-
-      // Equipo con color
-      celdaEquipo.textContent = piloto.equipo;
-      celdaEquipo.style.cssText = `
-        color: ${coloresEquipo[piloto.equipo] || '#000'};
-        font-weight: bold;
-        border-left: 4px solid ${coloresEquipo[piloto.equipo] || '#000'};
-        padding-left: 8px;
+      celdaPosicion.style.cssText = `
+        font-weight: bold !important;
+        font-size: 0.85em !important;
+        padding: 2px 6px !important;
+        text-align: center !important;
       `;
 
-      // Piloto con bandera
-      celdaPiloto.innerHTML = `${piloto.nacionalidad} ${piloto.piloto}`;
-      celdaPiloto.style.fontWeight = '500';
+      // Equipo con color compacto
+      celdaEquipo.textContent = piloto.equipo;
+      celdaEquipo.style.cssText = `
+        color: ${coloresEquipo[piloto.equipo] || '#000'} !important;
+        font-weight: bold !important;
+        border-left: 3px solid ${coloresEquipo[piloto.equipo] || '#000'} !important;
+        padding: 2px 6px 2px 8px !important;
+        font-size: 0.85em !important;
+      `;
 
-      // Puntos - EDITABLE
+      // Piloto compacto (sin bandera)
+      celdaPiloto.innerHTML = piloto.piloto;
+      celdaPiloto.style.cssText = `
+        font-weight: 500 !important;
+        font-size: 0.85em !important;
+        padding: 2px 6px !important;
+      `;
+
+      // Puntos - Input compacto y editable
       const inputPuntos = document.createElement('input');
       inputPuntos.type = 'number';
       inputPuntos.value = piloto.puntos;
       inputPuntos.min = '0';
       inputPuntos.max = '1000';
       inputPuntos.style.cssText = `
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: ${piloto.puntos > 200 ? '#059669' : piloto.puntos > 100 ? '#D97706' : '#6B7280'};
-        font-size: 0.8rem;
-        font-weight: bold;
-        text-align: center;
-        align-self: center;
-        width: 80px;
-        padding: 7px;
-        border-radius: 4px;
+        background: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: ${piloto.puntos > 200 ? '#059669' : piloto.puntos > 100 ? '#D97706' : '#6B7280'} !important;
+        font-size: 0.75em !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        width: 50px !important;
+        height: 20px !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
         transition: all 0.3s ease;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
       `;
       
       // Event listener para cambios en puntos
@@ -667,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.actualizacionTimeout = setTimeout(() => {
           actualizarPosiciones();
           renderizarTabla(clasificacion);
-          renderizarTablaEquipos(); // Actualizar también tabla de equipos
+          renderizarTablaEquipos();
           mostrarNotificacion(`¡Puntos actualizados! ${piloto.piloto} ahora tiene ${nuevosPuntos} puntos`);
         }, 500);
       });
@@ -683,6 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.style.boxShadow = 'none';
       });
       
+      celdaPuntos.style.cssText = 'padding: 2px 6px !important; text-align: center !important;';
       celdaPuntos.appendChild(inputPuntos);
     });
   }
@@ -755,16 +787,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     #tabla-clasificacion th {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 12px;
-      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      color: white !important;
+      padding: 4px 8px !important;
+      text-align: center !important;
+      font-size: 0.85em !important;
+      font-weight: bold !important;
+      height: 24px !important;
+    }
+    
+    #tabla-clasificacion tr {
+      line-height: 1.2 !important;
+      height: 28px !important;
     }
     
     #tabla-clasificacion td {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 2px 6px !important;
+      text-align: center !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      vertical-align: middle !important;
+      font-size: 0.85em !important;
     }
     
     #tabla-clasificacion tr:nth-child(even) {
@@ -810,19 +852,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     #tabla-equipos th {
-      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-      color: white;
-      padding: 12px;
-      text-align: center;
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%) !important;
+      color: white !important;
+      padding: 4px 8px !important;
+      text-align: center !important;
+      font-size: 0.85em !important;
+      font-weight: bold !important;
+      height: 24px !important;
     }
-    
+
     #tabla-equipos td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 2px 6px !important;
+      text-align: center !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      vertical-align: middle !important;
+      font-size: 0.85em !important;
     }
     
-    #tabla-equipos tr:nth-child(even) {
+    #tabla-equipos tr {
+      line-height: 1.2 !important;
+      height: 28px !important;
+    }    #tabla-equipos tr:nth-child(even) {
       background-color: transparent;
     }
     
