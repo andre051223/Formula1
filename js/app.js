@@ -182,14 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Datos de la clasificación - sin posiciones predeterminadas
   let clasificacion = [
-    { equipo:'Red Bull', piloto: 'Max Verstappen', puntos: 306 },
+    { equipo:'Red Bull', piloto: 'Max Verstappen', puntos: 321 },
     { equipo:'Red Bull',piloto: 'Yuki Tsunoda', puntos: 28 },
-    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 142 },
-    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 192 },
-    { equipo:'Mercedes',piloto: 'George Russell', puntos: 252 },
-    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 89 },
-    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 346 },
-    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 332 },
+    { equipo:'Ferrari',piloto: 'Lewis Hamilton', puntos: 146 },
+    { equipo:'Ferrari',piloto: 'Charles Leclerc', puntos: 210 },
+    { equipo:'Mercedes',piloto: 'George Russell', puntos: 258 },
+    { equipo:'Mercedes',piloto: 'Kimi Antonelli', puntos: 97 },
+    { equipo:'McLaren',piloto: 'Oscar Piastri', puntos: 356 },
+    { equipo:'McLaren',piloto: 'Lando Norris', puntos: 357 },
     { equipo:'Visa RB',piloto: 'Isack Hadjar', puntos: 39 },
     { equipo:'Visa RB', piloto: 'Liam Lawson', puntos: 30 },
     { equipo:'Aston Martin',piloto: 'Fernando Alonso', puntos: 37 },
@@ -198,10 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
     { equipo:'Alpine',piloto: 'Franco Colapinto', puntos: 0 },
     { equipo:'Williams',piloto: 'Carlos Sainz', puntos: 38 },
     { equipo:'Williams',piloto: 'Alex Albon', puntos: 73 },
-    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 18 },
+    { equipo:'Kick Sauber',piloto: 'Gabriel Bortoleto', puntos: 19 },
     { equipo:'Kick Sauber',piloto: 'Nico Hulkenberg', puntos: 41 },
-    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 20 },
-    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 28 },
+    { equipo:'Haas',piloto: 'Oliver Bearman', puntos: 32 },
+    { equipo:'Haas',piloto: 'Esteban Ocon', puntos: 30 },
   ];
 
   // Colores por equipo
